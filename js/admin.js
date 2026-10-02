@@ -211,3 +211,71 @@ adminForm.addEventListener('submit', async (event) => {
   lastSavedContent = structuredClone(content);
   adminStatus.textContent = 'Изменения сохранены. Они появятся на сайте после обновления страницы.';
 });
+
+
+// Password setup and recovery for the site owner.
+const recoveryButton = document.createElement('button');
+recoveryButton.type = 'button';
+recoveryButton.className = 'btn btn--ghost';
+recoveryButton.textContent = 'Задать или восстановить пароль';
+loginForm.querySelector('button[type="submit"]').after(recoveryButton);
+
+const recoveryForm = document.createElement('form');
+recoveryForm.className = 'admin-card';
+recoveryForm.hidden = true;
+recoveryForm.innerHTML =
+  '<h2>Задайте новый пароль</h2>' +
+  '<label class="booking__field">Новый пароль<input name="new-password" type="password" autocomplete="new-password" minlength="8" required /></label>' +
+  '<label class="booking__field">Повторите пароль<input name="confirm-password" type="password" autocomplete="new-password" minlength="8" required /></label>' +
+  '<button class="btn btn--primary" type="submit">Сохранить пароль</button>' +
+  '<p class="admin-note" data-recovery-status aria-live="polite"></p>';
+loginForm.after(recoveryForm);
+const recoveryStatus = recoveryForm.querySelector('[data-recovery-status]');
+
+function showRecoveryForm() {
+  loginForm.hidden = true;
+  editor.hidden = true;
+  recoveryForm.hidden = false;
+  recoveryStatus.textContent = 'Введите и подтвердите новый пароль.';
+}
+
+recoveryButton.addEventListener('click', async () => {
+  const email = loginForm.elements.namedItem('email');
+  if (!email.reportValidity()) return;
+  loginStatus.textContent = 'Отправляю письмо…';
+  const { error } = await db.auth.resetPasswordForEmail(email.value.trim(), {
+    redirectTo: window.location.href.split('#')[0]
+  });
+  loginStatus.textContent = error
+    ? 'Не удалось отправить письмо. Проверьте настройки почты Supabase.'
+    : 'Письмо отправлено. Перейдите по ссылке в письме, чтобы задать пароль.';
+});
+
+recoveryForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const password = recoveryForm.elements.namedItem('new-password').value;
+  const confirmation = recoveryForm.elements.namedItem('confirm-password').value;
+  if (password !== confirmation) {
+    recoveryStatus.textContent = 'Пароли не совпадают.';
+    return;
+  }
+  recoveryStatus.textContent = 'Сохраняю пароль…';
+  const { error } = await db.auth.updateUser({ password });
+  if (error) {
+    recoveryStatus.textContent = 'Не удалось сохранить пароль. Возможно, ссылка уже устарела.';
+    return;
+  }
+  recoveryStatus.textContent = 'Пароль сохранён. Открываю панель…';
+  const { data: { session } } = await db.auth.getSession();
+  if (session) await loadEditor(session);
+  else {
+    recoveryForm.hidden = true;
+    loginForm.hidden = false;
+    loginStatus.textContent = 'Пароль сохранён. Теперь войдите с новым паролем.';
+  }
+});
+
+db.auth.onAuthStateChange((event) => {
+  if (event === 'PASSWORD_RECOVERY') showRecoveryForm();
+});
+if (window.location.hash.includes('type=recovery')) showRecoveryForm();
