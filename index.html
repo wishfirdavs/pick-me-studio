@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pick Me Studio — салон красоты</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body id="top">
+  <!-- ШАПКА -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Pick Me Studio — главная">
+        <img src="images/logo.png" alt="Pick Me Studio" class="logo__img" />
+        <span class="logo__text">
+          <span class="logo__main">Pick Me</span>
+          <span class="logo__sub">studio</span>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="#services">Услуги</a>
+        <a href="#masters">Мастера</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a href="#booking" class="btn">Записаться</a>
+    </div>
+  </header>
+
+  <!-- ГЛАВНЫЙ ЭКРАН -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <p class="hero__eyebrow">салон красоты · студия эстетики</p>
+      <h1 class="hero__title">
+        Pick Me <span>Studio</span>
+      </h1>
+      <p class="hero__subtitle">
+        Ресницы, брови, ногти, макияж и локоны —<br>
+        всё для твоего идеального образа в одном месте
+      </p>
+      <div class="hero__actions">
+        <a href="#booking" class="btn btn--primary">Записаться онлайн</a>
+        <a href="#services" class="btn btn--ghost">Смотреть услуги</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- УСЛУГИ -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">что мы делаем</p>
+        <h2 class="section__title">Наши услуги</h2>
+        <p class="section__desc">
+          Работаем с ресницами, бровями, ногтями и образом в целом.
+          Все процедуры — с учётом твоих пожеланий.
+        </p>
+      </div>
+
+      <div class="services" id="services-list">
+
+        <article class="service">
+          <div class="service__icon">👁️</div>
+          <h3 class="service__title">Ламинирование ресниц и бровей</h3>
+          <p class="service__text">Долговременная укладка, питание и блеск. Эффект до 6–8 недель.</p>
+        </article>
+
+        <article class="service">
+          <div class="service__icon">✨</div>
+          <h3 class="service__title">Наращивание ресниц</h3>
+          <p class="service__text">Классика, 2D, 3D, объёмные и нестандартные типы. Подберём изгиб и длину под форму глаз.</p>
+        </article>
+
+        <article class="service">
+          <div class="service__icon">💅</div>
+          <h3 class="service__title">Наращивание ногтей</h3>
+          <p class="service__text">Стандартные формы и нестандартные дизайны: френч, градиент, роспись, стразы, 3D.</p>
+        </article>
+
+        <article class="service">
+          <div class="service__icon">🌸</div>
+          <h3 class="service__title">Маникюр</h3>
+          <p class="service__text">Аппаратный и комбинированный. Покрытие гель-лаком, уход за кутикулой.</p>
+        </article>
+
+        <article class="service">
+          <div class="service__icon">🦶</div>
+          <h3 class="service__title">Педикюр</h3>
+          <p class="service__text">Обработка стоп, покрытие, уход. Комфорт и аккуратность.</p>
+        </article>
+
+        <article class="service">
+          <div class="service__icon">💄</div>
+          <h3 class="service__title">Макияж</h3>
+          <p class="service__text">Дневной, вечерний, свадебный, фото. Подбираем под тип кожи и образ.</p>
+        </article>
+
+        <article class="service">
+          <div class="service__icon">🌀</div>
+          <h3 class="service__title">Локоны</h3>
+          <p class="service__text">Голливудская волна, мягкие локоны, укладка на торжество.</p>
+        </article>
+
+        <article class="service service--accent">
+          <span class="service__badge">Акция</span>
+          <div class="service__icon">🎀</div>
+          <h3 class="service__title">Макияж + Локоны</h3>
+          <p class="service__text">Комплексный образ для выпускного, свадьбы или фотосессии. Специальное предложение — выгоднее, чем по отдельности.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- БАННЕР С АКЦИЕЙ -->
+  <section class="offer">
+    <div class="container offer__inner">
+      <div>
+        <p class="offer__eyebrow">специальное предложение</p>
+        <h2 class="offer__title">Макияж + Локоны со скидкой</h2>
+        <p class="offer__text">
+          Полный образ под ключ — макияж и укладка. Идеально для выпускного,
+          свадьбы, фотосессии или особенного вечера.
+        </p>
+      </div>
+      <a href="#booking" class="btn btn--light">Записаться со скидкой</a>
+    </div>
+  </section>
+  
+    <!-- МАСТЕРА (превью) -->
+  <section class="section section--alt" id="masters">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">команда</p>
+        <h2 class="section__title">Наши мастера</h2>
+        <p class="section__desc">Каждый мастер — специалист в своём направлении.</p>
+      </div>
+
+      <div class="masters" id="masters-preview"></div>
+
+      <div class="masters__more">
+        <a href="masters.html" class="btn btn--primary">Все мастера</a>
+      </div>
+    </div>
+  </section>
+  <!-- ГАЛЕРЕЯ -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">наши работы</p>
+        <h2 class="section__title">Галерея</h2>
+        <p class="section__desc">
+          Немного из того, что мы делаем каждый день.
+        </p>
+      </div>
+
+      <div class="gallery" id="gallery-grid"></div>
+      <div class="gallery__more-wrap">
+        <button class="btn btn--ghost" id="gallery-more">Показать ещё</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЗАПИСЬ -->
+  <section class="section section--alt" id="booking">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">первый шаг к новому образу</p>
+        <h2 class="section__title">Подготовить заявку</h2>
+        <p class="section__desc">Заполните форму — мы подготовим текст сообщения. Он останется у вас, пока вы сами не скопируете и не отправите его студии.</p>
+      </div>
+      <form class="booking" id="booking-form">
+        <label class="booking__field">
+          <span>Как к вам обращаться</span>
+          <input name="name" autocomplete="name" required maxlength="80" placeholder="Ваше имя" />
+        </label>
+        <label class="booking__field">
+          <span>Услуга</span>
+          <select name="service" required>
+            <option value="" selected disabled>Выберите услугу</option>
+            <option>Ламинирование ресниц и бровей</option>
+            <option>Наращивание ресниц</option>
+            <option>Наращивание ногтей</option>
+            <option>Маникюр</option>
+            <option>Педикюр</option>
+            <option>Макияж</option>
+            <option>Локоны</option>
+            <option>Макияж + локоны</option>
+            <option>Хочу уточнить</option>
+          </select>
+        </label>
+        <label class="booking__field">
+          <span>Удобный день или время <span class="booking__optional">необязательно</span></span>
+          <input name="time" maxlength="100" placeholder="Например, суббота после 14:00" />
+        </label>
+        <button class="btn btn--primary" type="submit">Подготовить сообщение</button>
+        <div class="booking__result" id="booking-result" aria-live="polite" hidden>
+          <label class="booking__field" for="booking-message">Ваше сообщение</label>
+          <textarea id="booking-message" readonly rows="4"></textarea>
+          <button class="btn btn--ghost" id="booking-copy" type="button">Скопировать текст</button>
+          <p class="booking__status" id="booking-status"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+  
+  <!-- КОНТАКТЫ -->
+  <section class="section" id="contacts">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">как нас найти</p>
+        <h2 class="section__title">Контакты</h2>
+      </div>
+
+      <div class="contacts">
+
+        <div class="contacts__info">
+          <div class="contact-item">
+            <span class="contact-item__label">Запись</span>
+            <p>Подготовьте сообщение в форме выше и отправьте его студии удобным способом.</p>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item__label">Адрес и график</span>
+            <p>Добавьте точные данные студии перед публикацией сайта.</p>
+          </div>
+        </div>
+
+        <div class="contacts__map">
+          <span>Здесь можно разместить карту<br>после добавления адреса студии</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">Pick Me Studio</p>
+      <a href="#top" class="footer__link">Наверх ↑</a>
+    </div>
+  </footer>
+  <script src="js/supabase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/site-content.js" defer></script>
+  <script src="js/booking.js" defer></script>
+</body>
+</html>

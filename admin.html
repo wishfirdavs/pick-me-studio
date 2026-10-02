@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Управление сайтом — Pick Me Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="admin-page">
+  <header class="header header--static">
+    <div class="container header__inner">
+      <a href="index.html" class="logo"><span class="logo__text"><span class="logo__main">Pick Me Studio</span><span class="logo__sub">управление сайтом</span></span></a>
+      <a href="index.html" class="btn btn--ghost">Открыть сайт</a>
+    </div>
+  </header>
+  <main class="section">
+    <div class="container admin-container">
+      <div class="section__head">
+        <p class="section__eyebrow">только для владельца</p>
+        <h1 class="section__title">Управление сайтом</h1>
+        <p class="section__desc">Редактируйте информацию, услуги, мастеров и фотографии. Изменения сохраняются в облаке и сразу появляются на сайте.</p>
+      </div>
+      <form class="admin-card" id="admin-login">
+        <h2>Вход владельца</h2>
+        <label class="booking__field">Электронная почта<input name="email" type="email" autocomplete="username" required /></label>
+        <label class="booking__field">Пароль<input name="password" type="password" autocomplete="current-password" required /></label>
+        <button class="btn btn--primary" type="submit">Войти</button>
+        <p class="admin-note" id="admin-login-status" aria-live="polite"></p>
+      </form>
+      <div id="admin-editor" hidden>
+        <div class="admin-toolbar"><p id="admin-user"></p><button class="btn btn--ghost" id="admin-logout" type="button">Выйти</button></div>
+        <form id="admin-form" class="admin-grid">
+          <section class="admin-card">
+            <h2>Контакты и главный экран</h2>
+            <div id="admin-settings" class="admin-fields"></div>
+          </section>
+          <section class="admin-card">
+            <h2>Услуги</h2>
+            <div id="admin-services" class="admin-list"></div>
+            <button class="btn btn--ghost" type="button" data-add="services">Добавить услугу</button>
+          </section>
+          <section class="admin-card">
+            <h2>Мастера</h2>
+            <div id="admin-masters" class="admin-list"></div>
+            <button class="btn btn--ghost" type="button" data-add="masters">Добавить мастера</button>
+          </section>
+          <section class="admin-card">
+            <h2>Галерея</h2>
+            <div id="admin-gallery" class="admin-list"></div>
+            <button class="btn btn--ghost" type="button" data-add="gallery">Добавить фото</button>
+          </section>
+          <div class="admin-savebar">
+            <button class="btn btn--primary" type="submit">Сохранить изменения</button>
+            <p id="admin-status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="js/supabase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/admin.js" defer></script>
+</body>
+</html>
